@@ -1,5 +1,4 @@
 package com.mojaru.project.controller;
-
 import com.mojaru.project.model.User;
 import com.mojaru.project.service.UserService;
 import lombok.RequiredArgsConstructor;

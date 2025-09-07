@@ -4,8 +4,11 @@ import com.mojaru.project.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    // You can define custom query methods here if needed
-    User getUserByEmail(String email);
+
+    Optional<User> findByEmailIgnoreCase(String email);
+    boolean existsByEmailIgnoreCase(String email);
 }

@@ -1,7 +1,9 @@
 package com.mojaru.project.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 
 @Entity
@@ -12,10 +14,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String username;
+    /*@Column(nullable = false)*/
+    private String name;
 
-    //@JsonIgnore
-    private String password;
-
+    /*@Column(nullable = false, unique = true)*/
     private String email;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ToString.Exclude
+    /*@Column(nullable = false)*/
+    private String password;
 }
